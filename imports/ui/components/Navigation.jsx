@@ -23,8 +23,7 @@ const Navigation = ({
       <Row>
         {navigationItems.map(({ label, path }, i) =>
           <Col className="text-center p-1" key={`nav-item-${label}-${i}`}>
-            {/*<NavigationItem label={label} path={path} />*/}
-            {label}
+            <NavigationItem label={label} path={path} />
           </Col>
         )}
       </Row>

@@ -30,6 +30,5 @@ const renderApp = () =>
 Meteor.startup(() => {
   //load bees initially
   store.dispatch(initAppRequest());
-
   renderApp();
 });

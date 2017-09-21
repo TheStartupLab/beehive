@@ -34,6 +34,8 @@ const AppLayout = ({
 }: {
   children: StatelessComponent
 }): StatelessComponent =>
+
+<ConnectedRouter history={history}>
   <Container className="app px-0" fluid>
     <Row className="bg-faded">
       <Col>
@@ -42,25 +44,21 @@ const AppLayout = ({
         </header>
       </Col>
     </Row>
-    <Row className="bg-faded">
-      <Col>
-        <Navigation navigationItems={navigationItems} />
-      </Col>
-    </Row>
-    <Row noGutters>
-      <Col>
-        <main>
-          <ConnectedRouter history={history}>
-            <div>
-              <Route exact path="/" component={HomeContainer} />
-              <Route exact path="/config" component={ConfigContainer} />
-              <Route exact path="/settings" component={SettingsContainer} />
-              <Route path="*" component={NotFound} />
-            </div>
-          </ConnectedRouter>
-        </main>
-      </Col>
-    </Row>
+      <Row className="bg-faded">
+        <Col>
+          <Navigation navigationItems={navigationItems} />
+        </Col>
+      </Row>
+      <Row noGutters>
+        <Col>
+          <main>
+            <Route path="/" component={HomeContainer} />
+            <Route path="/config" component={ConfigContainer} />
+            <Route path="/settings" component={SettingsContainer} />
+            <Route component={NotFound} />
+          </main>
+        </Col>
+      </Row>
     <Row>
       <Col>
         <footer className="py-1 text-center">
@@ -70,6 +68,7 @@ const AppLayout = ({
         </footer>
       </Col>
     </Row>
-  </Container>;
+  </Container>
+</ConnectedRouter>;
 
 export default AppLayout;
