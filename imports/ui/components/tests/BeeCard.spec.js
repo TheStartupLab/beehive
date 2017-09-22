@@ -32,37 +32,41 @@ describe("BeeCard", () => {
     });
 
     it("checks rendering of Bee Card", () => {
-      expect(instance.type).toBe(Card);
-      expect(instance.props.children.length).toBe(2);
+      const { type, props: { children }} = instance;
+      expect(type).toBe(Card);
+      expect(children.length).toBe(2);
     });
 
     it("checks rendering of CardImg", () => {
-      expect(cardImg.type).toBe(CardImg);
-      expect(cardImg.props.src).toBe(
-        `./images/bees/${bee.type.toLowerCase()}.jpg`
-      );
-      expect(cardImg.props.alt).toBe(`${bee.type} Bee`);
+      const { type, props: { src, alt } } = cardImg;
+      expect(type).toBe(CardImg);
+      expect(src).toBe(`./images/bees/${bee.type.toLowerCase()}.jpg`);
+      expect(alt).toBe(`${bee.type} Bee`);
     });
 
     it("checks rendering of CardBlock", () => {
-      expect(cardBlock.type).toBe(CardBlock);
-      expect(cardBlock.props.children.length).toBe(3);
+      const { type, props: {children} } = cardBlock;
+      expect(type).toBe(CardBlock);
+      expect(children.length).toBe(3);
     });
 
     it("checks rendering of CardTitle", () => {
-      expect(cardTitle.type).toBe(CardTitle);
-      expect(cardTitle.props.children).toBe(bee.name);
+      const { type, props: {children} } = cardTitle;
+      expect(type).toBe(CardTitle);
+      expect(children).toBe(bee.name);
     });
 
     it("checks rendering of CardSubtitle", () => {
-      expect(cardSubtitle.type).toBe(CardSubtitle);
-      expect(cardSubtitle.props.children).toBe(bee.type);
+      const { type, props: { children } } = cardSubtitle;
+      expect(type).toBe(CardSubtitle);
+      expect(children).toBe(bee.type);
     });
 
     it("checks rendering of Button", () => {
-      expect(deleteButton.type).toBe(Button);
-      expect(deleteButton.props.color).toBe("danger");
-      expect(deleteButton.props.children).toBe("Delete");
+      const { type, props: { color, children } } = deleteButton;
+      expect(type).toBe(Button);
+      expect(color).toBe("danger");
+      expect(children).toBe("Delete");
     });
 
     it("checks to see if the deleteButton calls removeBee", () => {
