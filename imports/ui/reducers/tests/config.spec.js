@@ -1,7 +1,5 @@
 import reducer, { DEFAULT_STATE } from "../config";
-import {
-  SET_CONFIG_VALUE,
-} from "../../actionTypes/config";
+import { SET_CONFIG_VALUE } from "../../actionTypes/config";
 
 describe("config reducer", () => {
   it("should return the initial state", () => {
@@ -24,13 +22,13 @@ describe("config reducer", () => {
   it("should handle SET_CONFIG_VALUE", () => {
     const mockAction = {
       type: SET_CONFIG_VALUE,
-      payload: { key: 'sampleConfig', value: 111 }
+      payload: { key: "sampleConfig", value: 111 }
     };
     const result = reducer(DEFAULT_STATE, mockAction);
     const expected = {
       ...DEFAULT_STATE,
       [mockAction.payload.key]: mockAction.payload.value
-    }
+    };
     expect(result).toEqual(expected);
   });
 });

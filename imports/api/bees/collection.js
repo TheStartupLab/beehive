@@ -2,7 +2,7 @@
 
 // Framework
 import { Meteor } from "meteor/meteor";
-import { Mongo } from 'meteor/mongo';
+import { Mongo } from "meteor/mongo";
 import SimpleSchema from "simpl-schema";
 
 class BeesCollection extends Mongo.Collection {

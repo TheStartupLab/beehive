@@ -33,7 +33,7 @@ describe("bees reducer", () => {
   });
 
   it("should handle FETCH_BEES_REQUEST", () => {
-    const mockAction = {type: FETCH_BEES_REQUEST};
+    const mockAction = { type: FETCH_BEES_REQUEST };
     const result = reducer(DEFAULT_STATE, mockAction);
     const expected = DEFAULT_STATE;
     expect(result).toEqual(expected);
@@ -55,25 +55,25 @@ describe("bees reducer", () => {
   it("should handle BEES_REQUEST_FAILED", () => {
     const mockAction = {
       type: BEES_REQUEST_FAILED,
-      payload: 'bee request failed'
+      payload: "bee request failed"
     };
     const result = reducer(DEFAULT_STATE, mockAction);
     const expected = {
       ...DEFAULT_STATE,
       error: mockAction.payload
-    }
+    };
     expect(result).toEqual(expected);
   });
 
   it("should handle CREATE_BEE_REQUEST", () => {
-    const mockAction = {type: CREATE_BEE_REQUEST};
+    const mockAction = { type: CREATE_BEE_REQUEST };
     const result = reducer(DEFAULT_STATE, mockAction);
     const expected = DEFAULT_STATE;
     expect(result).toEqual(expected);
   });
 
   it("should handle CREATE_BEE_SUCCESSFUL", () => {
-    const mockAction = {type: CREATE_BEE_SUCCESSFUL};
+    const mockAction = { type: CREATE_BEE_SUCCESSFUL };
     const result = reducer(DEFAULT_STATE, mockAction);
     const expected = DEFAULT_STATE;
     expect(result).toEqual(expected);
@@ -82,25 +82,25 @@ describe("bees reducer", () => {
   it("should handle CREATE_BEE_FAILED", () => {
     const mockAction = {
       type: CREATE_BEE_FAILED,
-      payload: 'create bee failed'
+      payload: "create bee failed"
     };
     const result = reducer(DEFAULT_STATE, mockAction);
     const expected = {
       ...DEFAULT_STATE,
       error: mockAction.payload
-    }
+    };
     expect(result).toEqual(expected);
   });
 
   it("should handle REMOVE_BEE_REQUEST", () => {
-    const mockAction = {type: REMOVE_BEE_REQUEST};
+    const mockAction = { type: REMOVE_BEE_REQUEST };
     const result = reducer(DEFAULT_STATE, mockAction);
     const expected = DEFAULT_STATE;
     expect(result).toEqual(expected);
   });
 
   it("should handle REMOVE_BEE_SUCCESSFUL", () => {
-    const mockAction = {type: REMOVE_BEE_SUCCESSFUL};
+    const mockAction = { type: REMOVE_BEE_SUCCESSFUL };
     const result = reducer(DEFAULT_STATE, mockAction);
     const expected = DEFAULT_STATE;
     expect(result).toEqual(expected);
@@ -109,25 +109,25 @@ describe("bees reducer", () => {
   it("should handle REMOVE_BEE_FAILED", () => {
     const mockAction = {
       type: REMOVE_BEE_FAILED,
-      payload: 'remove bee failed'
+      payload: "remove bee failed"
     };
     const result = reducer(DEFAULT_STATE, mockAction);
     const expected = {
       ...DEFAULT_STATE,
       error: mockAction.payload
-    }
+    };
     expect(result).toEqual(expected);
   });
 
   it("should handle REMOVE_ALL_BEES_REQUEST", () => {
-    const mockAction = {type: REMOVE_ALL_BEES_REQUEST};
+    const mockAction = { type: REMOVE_ALL_BEES_REQUEST };
     const result = reducer(DEFAULT_STATE, mockAction);
     const expected = DEFAULT_STATE;
     expect(result).toEqual(expected);
   });
 
   it("should handle REMOVE_ALL_BEES_SUCCESSFUL", () => {
-    const mockAction = {type: REMOVE_ALL_BEES_SUCCESSFUL};
+    const mockAction = { type: REMOVE_ALL_BEES_SUCCESSFUL };
     const result = reducer(DEFAULT_STATE, mockAction);
     const expected = DEFAULT_STATE;
     expect(result).toEqual(expected);
@@ -136,13 +136,13 @@ describe("bees reducer", () => {
   it("should handle REMOVE_ALL_BEES_FAILED", () => {
     const mockAction = {
       type: REMOVE_ALL_BEES_FAILED,
-      payload: 'remove all bees failed'
+      payload: "remove all bees failed"
     };
     const result = reducer(DEFAULT_STATE, mockAction);
     const expected = {
       ...DEFAULT_STATE,
       error: mockAction.payload
-    }
+    };
     expect(result).toEqual(expected);
   });
 });

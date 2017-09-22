@@ -1,7 +1,5 @@
 import reducer, { DEFAULT_STATE } from "../settings";
-import {
-  SET_SETTINGS_VALUE,
-} from "../../actionTypes/settings";
+import { SET_SETTINGS_VALUE } from "../../actionTypes/settings";
 
 describe("settings reducer", () => {
   it("should return the initial state", () => {
@@ -24,13 +22,13 @@ describe("settings reducer", () => {
   it("should handle SET_SETTINGS_VALUE", () => {
     const mockAction = {
       type: SET_SETTINGS_VALUE,
-      payload: { key: 'hiveName', value: 'New HiveName' }
+      payload: { key: "hiveName", value: "New HiveName" }
     };
     const result = reducer(DEFAULT_STATE, mockAction);
     const expected = {
       ...DEFAULT_STATE,
       [mockAction.payload.key]: mockAction.payload.value
-    }
+    };
     expect(result).toEqual(expected);
   });
 });
