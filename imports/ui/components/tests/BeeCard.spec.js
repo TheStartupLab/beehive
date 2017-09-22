@@ -32,7 +32,7 @@ describe("BeeCard", () => {
     });
 
     it("checks rendering of Bee Card", () => {
-      const { type, props: { children }} = instance;
+      const { type, props: { children } } = instance;
       expect(type).toBe(Card);
       expect(children.length).toBe(2);
     });
@@ -45,13 +45,13 @@ describe("BeeCard", () => {
     });
 
     it("checks rendering of CardBlock", () => {
-      const { type, props: {children} } = cardBlock;
+      const { type, props: { children } } = cardBlock;
       expect(type).toBe(CardBlock);
       expect(children.length).toBe(3);
     });
 
     it("checks rendering of CardTitle", () => {
-      const { type, props: {children} } = cardTitle;
+      const { type, props: { children } } = cardTitle;
       expect(type).toBe(CardTitle);
       expect(children).toBe(bee.name);
     });
