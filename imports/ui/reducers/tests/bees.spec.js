@@ -4,14 +4,14 @@ import {
   BEES_RECEIVED,
   BEES_REQUEST_FAILED,
   CREATE_BEE_REQUEST,
-  CREATE_BEE_FAILED,
   CREATE_BEE_SUCCESSFUL,
+  CREATE_BEE_FAILED,
   REMOVE_BEE_REQUEST,
-  REMOVE_BEE_FAILED,
   REMOVE_BEE_SUCCESSFUL,
+  REMOVE_BEE_FAILED,
   REMOVE_ALL_BEES_REQUEST,
-  REMOVE_ALL_BEES_FAILED,
-  REMOVE_ALL_BEES_SUCCESSFUL
+  REMOVE_ALL_BEES_SUCCESSFUL,
+  REMOVE_ALL_BEES_FAILED
 } from "../../actionTypes/bees";
 
 describe("bees reducer", () => {
@@ -32,86 +32,117 @@ describe("bees reducer", () => {
     expect(result).toEqual(expected);
   });
 
-  // it("should handle SET_OPERATION_HOTKEY", () => {
-  //   const mockAction = {
-  //     type: SET_OPERATION_HOTKEY,
-  //     payload: {
-  //       operation: "testOperation",
-  //       value: "p"
-  //     }
-  //   };
-  //   const result = reducer(DEFAULT_STATE, mockAction);
-  //   const expected = {
-  //     ...DEFAULT_STATE,
-  //     hotkeys: {
-  //       ...DEFAULT_STATE.hotkeys,
-  //       testOperation: {
-  //         value: "p"
-  //       }
-  //     }
-  //   };
-  //   expect(result).toEqual(expected);
-  // });
-  //
-  // it("should handle RESUME_CONTROLS", () => {
-  //   const mockAction = { type: RESUME_CONTROLS };
-  //   const result = reducer(DEFAULT_STATE, mockAction);
-  //   const expected = {
-  //     ...DEFAULT_STATE,
-  //     controlsEnabled: true
-  //   };
-  //   expect(result).toEqual(expected);
-  // });
-  //
-  // it("should handle PAUSE_CONTROLS", () => {
-  //   const mockAction = { type: PAUSE_CONTROLS };
-  //   const result = reducer(DEFAULT_STATE, mockAction);
-  //   const expected = {
-  //     ...DEFAULT_STATE,
-  //     controlsEnabled: false
-  //   };
-  //   expect(result).toEqual(expected);
-  // });
-  //
-  // it("should handle AUGMENT_A_OFF", () => {
-  //   const mockAction = { type: AUGMENT_A_OFF };
-  //   const result = reducer(DEFAULT_STATE, mockAction);
-  //   const expected = { ...DEFAULT_STATE, augmentA: false };
-  //   expect(result).toEqual(expected);
-  // });
-  //
-  // it("should handle AUGMENT_A_ON", () => {
-  //   const mockAction = { type: AUGMENT_A_ON };
-  //   const result = reducer(DEFAULT_STATE, mockAction);
-  //   const expected = { ...DEFAULT_STATE, augmentA: true };
-  //   expect(result).toEqual(expected);
-  // });
-  //
-  // it("should handle AUGMENT_B_OFF", () => {
-  //   const mockAction = { type: AUGMENT_B_OFF };
-  //   const result = reducer(DEFAULT_STATE, mockAction);
-  //   const expected = { ...DEFAULT_STATE, augmentB: false };
-  //   expect(result).toEqual(expected);
-  // });
-  //
-  // it("should handle AUGMENT_B_ON", () => {
-  //   const mockAction = { type: AUGMENT_B_ON };
-  //   const result = reducer(DEFAULT_STATE, mockAction);
-  //   const expected = { ...DEFAULT_STATE, augmentB: true };
-  //   expect(result).toEqual(expected);
-  // });
-  //
-  // it("should handle AUGMENT_C_OFF", () => {
-  //   const mockAction = { type: AUGMENT_C_OFF };
-  //   const result = reducer(DEFAULT_STATE, mockAction);
-  //   const expected = { ...DEFAULT_STATE, augmentC: false };
-  //   expect(result).toEqual(expected);
-  // });
-  //
-  // it("should handle AUGMENT_C_ON", () => {
-  //   const mockAction = { type: AUGMENT_C_ON };
-  //   const result = reducer(DEFAULT_STATE, mockAction);
-  //   const expected = { ...DEFAULT_STATE, augmentC: true };
-  //   expect(result).toEqual(expected);
-  // });
+  it("should handle FETCH_BEES_REQUEST", () => {
+    const mockAction = {type: FETCH_BEES_REQUEST};
+    const result = reducer(DEFAULT_STATE, mockAction);
+    const expected = DEFAULT_STATE;
+    expect(result).toEqual(expected);
+  });
+
+  it("should handle BEES_RECEIVED", () => {
+    const mockAction = {
+      type: BEES_RECEIVED,
+      payload: []
+    };
+    const result = reducer(DEFAULT_STATE, mockAction);
+    const expected = {
+      ...DEFAULT_STATE,
+      bees: mockAction.payload
+    };
+    expect(result).toEqual(expected);
+  });
+
+  it("should handle BEES_REQUEST_FAILED", () => {
+    const mockAction = {
+      type: BEES_REQUEST_FAILED,
+      payload: 'bee request failed'
+    };
+    const result = reducer(DEFAULT_STATE, mockAction);
+    const expected = {
+      ...DEFAULT_STATE,
+      error: mockAction.payload
+    }
+    expect(result).toEqual(expected);
+  });
+
+  it("should handle CREATE_BEE_REQUEST", () => {
+    const mockAction = {type: CREATE_BEE_REQUEST};
+    const result = reducer(DEFAULT_STATE, mockAction);
+    const expected = DEFAULT_STATE;
+    expect(result).toEqual(expected);
+  });
+
+  it("should handle CREATE_BEE_SUCCESSFUL", () => {
+    const mockAction = {type: CREATE_BEE_SUCCESSFUL};
+    const result = reducer(DEFAULT_STATE, mockAction);
+    const expected = DEFAULT_STATE;
+    expect(result).toEqual(expected);
+  });
+
+  it("should handle CREATE_BEE_FAILED", () => {
+    const mockAction = {
+      type: CREATE_BEE_FAILED,
+      payload: 'create bee failed'
+    };
+    const result = reducer(DEFAULT_STATE, mockAction);
+    const expected = {
+      ...DEFAULT_STATE,
+      error: mockAction.payload
+    }
+    expect(result).toEqual(expected);
+  });
+
+  it("should handle REMOVE_BEE_REQUEST", () => {
+    const mockAction = {type: REMOVE_BEE_REQUEST};
+    const result = reducer(DEFAULT_STATE, mockAction);
+    const expected = DEFAULT_STATE;
+    expect(result).toEqual(expected);
+  });
+
+  it("should handle REMOVE_BEE_SUCCESSFUL", () => {
+    const mockAction = {type: REMOVE_BEE_SUCCESSFUL};
+    const result = reducer(DEFAULT_STATE, mockAction);
+    const expected = DEFAULT_STATE;
+    expect(result).toEqual(expected);
+  });
+
+  it("should handle REMOVE_BEE_FAILED", () => {
+    const mockAction = {
+      type: REMOVE_BEE_FAILED,
+      payload: 'remove bee failed'
+    };
+    const result = reducer(DEFAULT_STATE, mockAction);
+    const expected = {
+      ...DEFAULT_STATE,
+      error: mockAction.payload
+    }
+    expect(result).toEqual(expected);
+  });
+
+  it("should handle REMOVE_ALL_BEES_REQUEST", () => {
+    const mockAction = {type: REMOVE_ALL_BEES_REQUEST};
+    const result = reducer(DEFAULT_STATE, mockAction);
+    const expected = DEFAULT_STATE;
+    expect(result).toEqual(expected);
+  });
+
+  it("should handle REMOVE_ALL_BEES_SUCCESSFUL", () => {
+    const mockAction = {type: REMOVE_ALL_BEES_SUCCESSFUL};
+    const result = reducer(DEFAULT_STATE, mockAction);
+    const expected = DEFAULT_STATE;
+    expect(result).toEqual(expected);
+  });
+
+  it("should handle REMOVE_ALL_BEES_FAILED", () => {
+    const mockAction = {
+      type: REMOVE_ALL_BEES_FAILED,
+      payload: 'remove all bees failed'
+    };
+    const result = reducer(DEFAULT_STATE, mockAction);
+    const expected = {
+      ...DEFAULT_STATE,
+      error: mockAction.payload
+    }
+    expect(result).toEqual(expected);
+  });
 });
