@@ -38,6 +38,7 @@
     "babel-jest": "^21.0.2",
     "babel-preset-env": "^1.6.0",
     "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
     "eslint": "4.3.0",
     "eslint-config-prettier": "2.3.0",
     "eslint-plugin-flowtype": "2.35.0",
@@ -48,8 +49,9 @@
     "flow-typed": "2.1.5",
     "husky": "0.14.3",
     "jest-cli": "^21.1.0",
-    "jest-meteor-stubs": "mackbrowne/jest-meteor-stubs#master",
     "prettier": "1.5.3",
+    "react-dom": "^15.6.1",
+    "react-test-renderer": "^15.6.1",
     "redux-devtools": "3.4.0"
   },
   "jest": {
@@ -75,7 +77,8 @@
   "babel": {
     "presets": [
       "env",
-      "flow"
+      "flow",
+      "react"
     ],
     "plugins": [
       "transform-object-rest-spread"
