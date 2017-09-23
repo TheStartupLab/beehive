@@ -75,7 +75,7 @@
     ],
     "collectCoverage": true,
     "coverageReporters": [
-      "json",
+      "lcov",
       "html"
     ]
   },
