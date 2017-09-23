@@ -1,5 +1,7 @@
 import React from "react";
 import ReactTestUtils from "react-dom/test-utils";
+
+import ReactTestRenderer from 'react-test-renderer';
 import ReactShallowRenderer from "react-test-renderer/shallow";
 
 import BeeCard from "../BeeCard";
@@ -19,8 +21,17 @@ describe("BeeCard", () => {
   let cardTitle, cardSubtitle, deleteButton;
   const renderer = new ReactShallowRenderer();
 
-  let bee = { _id: "asdf1234", name: "test bee", type: "test type" };
+  let bee = { _id: "testID", name: "test bee", type: "test type" };
   let removeBee = jest.fn();
+
+  describe("BeeCard SnapShot", () => {
+    it('renders BeeCard correctly', () => {
+      const tree = ReactTestRenderer.create(
+        <BeeCard bee={bee} removeBee={removeBee} />
+      ).toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+  });
 
   describe("when bee is a worker", () => {
     beforeEach(() => {
@@ -31,23 +42,11 @@ describe("BeeCard", () => {
       [cardTitle, cardSubtitle, deleteButton] = cardBlock.props.children;
     });
 
-    it("checks rendering of Bee Card", () => {
-      const { type, props: { children } } = instance;
-      expect(type).toBe(Card);
-      expect(children.length).toBe(2);
-    });
-
     it("checks rendering of CardImg", () => {
       const { type, props: { src, alt } } = cardImg;
       expect(type).toBe(CardImg);
       expect(src).toBe(`./images/bees/${bee.type.toLowerCase()}.jpg`);
       expect(alt).toBe(`${bee.type} Bee`);
-    });
-
-    it("checks rendering of CardBlock", () => {
-      const { type, props: { children } } = cardBlock;
-      expect(type).toBe(CardBlock);
-      expect(children.length).toBe(3);
     });
 
     it("checks rendering of CardTitle", () => {
@@ -60,13 +59,6 @@ describe("BeeCard", () => {
       const { type, props: { children } } = cardSubtitle;
       expect(type).toBe(CardSubtitle);
       expect(children).toBe(bee.type);
-    });
-
-    it("checks rendering of Button", () => {
-      const { type, props: { color, children } } = deleteButton;
-      expect(type).toBe(Button);
-      expect(color).toBe("danger");
-      expect(children).toBe("Delete");
     });
 
     it("checks to see if the deleteButton calls removeBee", () => {

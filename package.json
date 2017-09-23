@@ -72,7 +72,9 @@
     "unmockedModulePathPatterns": [
       "/^imports\\/.*\\.jsx?$/",
       "/^node_modules/"
-    ]
+    ],
+    "collectCoverage": true,
+    "coverageReporters": ["json", "html"]
   },
   "babel": {
     "presets": [
