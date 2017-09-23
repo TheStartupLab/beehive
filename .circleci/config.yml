@@ -38,6 +38,7 @@ jobs:
     docker:
       - image: circleci/node:7.10
       - image: mongo:3.4.4
+    working_directory: ~/repo
     steps:
       # run tests!
       - run: yarn test
@@ -46,7 +47,6 @@ jobs:
       CC_TEST_REPORTER_ID: b440a5f5dd4e9015c5e4bdacc7c272576a6487f6379bbed10db3f0155fea6228
     docker:
       - image: circleci/node:7.10
-      - image: mongo:3.4.4
     working_directory: ~/repo
     steps:
       - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
