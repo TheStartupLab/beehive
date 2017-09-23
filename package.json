@@ -74,6 +74,10 @@
       "/^node_modules/"
     ],
     "collectCoverage": true,
+    "collectCoverageFrom" : [
+      "imports/**/*.js",
+      "imports/**/*.jsx"
+    ],
     "coverageReporters": [
       "lcov",
       "html"
