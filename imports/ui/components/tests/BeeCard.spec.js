@@ -1,7 +1,7 @@
 import React from "react";
 import ReactTestUtils from "react-dom/test-utils";
 
-import ReactTestRenderer from 'react-test-renderer';
+import ReactTestRenderer from "react-test-renderer";
 import ReactShallowRenderer from "react-test-renderer/shallow";
 
 import BeeCard from "../BeeCard";
@@ -25,7 +25,7 @@ describe("BeeCard", () => {
   let removeBee = jest.fn();
 
   describe("BeeCard SnapShot", () => {
-    it('renders BeeCard correctly', () => {
+    it("renders BeeCard correctly", () => {
       const tree = ReactTestRenderer.create(
         <BeeCard bee={bee} removeBee={removeBee} />
       ).toJSON();
